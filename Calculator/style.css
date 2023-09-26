@@ -1,0 +1,120 @@
+
+:root {
+    --numcol : rgb(124, 124, 149);
+}
+.main-body {
+    width: 320px;
+    height: 415px;
+    background-color: rgb(63, 63, 65);
+    display: grid;
+    grid-template-areas: 
+    'screen screen'
+    'number number'
+    'number number';
+    border-radius: 5px;
+    gap: 5px;
+}
+
+.screen {
+    height: 130px;
+    margin: 5px;
+    grid-area: screen;
+    background-color: rgb(238, 238, 234);
+    text-align: end;
+    line-height: 200px;
+    font-size: 30px;
+    font-weight: bold;
+    padding-right: 8px;
+    
+}
+
+.screen-result{
+    font-size: 30px;
+}
+
+.number {
+    height: 260px;
+    display: grid;
+    margin: 5px;
+    grid-area: number;
+    background-color: rgb(243, 239, 247);
+    grid-template-areas: 
+    'seven eight nine divide'
+    'four five six cross'
+    'one two three minus'
+    'zero plus dot equal';
+    gap: 5px;
+}
+
+.seven {
+    size: 80px;
+    grid-area: seven;
+    background-color: var(--numcol);
+}
+.eight {
+    grid-area: eight;
+    background-color: var(--numcol);
+}
+.nine {
+    grid-area: nine;
+    background-color: var(--numcol);
+}
+.divide {
+    grid-area: divide;
+    background-color: var(--numcol);
+}
+.four {
+    grid-area: four;
+    background-color: var(--numcol);
+}
+.five {
+    grid-area: five;
+    background-color: var(--numcol);
+}
+.six {
+    grid-area: six;
+    background-color: var(--numcol);
+}
+.cross {
+    
+    grid-area: cross;
+    background-color: var(--numcol);
+}
+.one {
+    
+    grid-area: one;
+    background-color: var(--numcol);
+}
+
+
+
+.two {
+    grid-area: two;
+    background-color: var(--numcol);
+}
+.three {
+    grid-area: three;
+    background-color: var(--numcol);
+}
+.minus {
+    grid-area: minus;
+    background-color: var(--numcol);
+}
+.zero {
+    grid-area: zero;
+    background-color: var(--numcol);
+}
+.plus {
+    grid-area: plus;
+    background-color: var(--numcol);
+}
+.dot {
+    grid-area: dot;
+    background-color: var(--numcol);
+}
+.equal {
+    grid-area: equal;
+    background-color: var(--numcol);
+}
+
+
