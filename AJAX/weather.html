@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Cuaca</title>
+    <style>
+        body{
+            background-color: rgb(170, 248, 248);
+        }
+        #searchButton{
+            background-color: rgb(255, 255, 0);
+            color: black;
+            border-radius: 5px;
+        }
+        .gambar {
+            display: none;
+        }
+        .gambar-active{
+            display: contents;
+        }
+        .card-weather{
+            justify-content: flex-end;
+            width: 100%;
+            height: 100px;
+            background-image: linear-gradient(to right, blue, rgb(195, 195, 233));
+        }
+    </style>
+</head>
+<body>
+    <h1>Cek cuaca di Indonesia</h1>
+    <form id="weatherForm">
+        <label for="city">Masukkan Nama Kota :</label>
+        <input type="text" id="city" required>
+        <button type="button" id="searchButton">Cari</button>
+    </form>
+    <br>
+    <div class="card-weather"></div>
+    <div id="weatherCity"></div>
+    <div id="weatherDegree"></div>
+    <img src="../partly_cloudy.png" class = "gambar gambar-active" alt="">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        let degree;
+        $(document).ready(function() {
+            $('#searchButton').click(function() {
+                const city = $('#city').val();
+                const apiKey = 'c1b09f18d0088326e3b425fc47c271a1';
+
+                $.ajax({
+                    url: `https://api.openweathermap.org/data/2.5/weather?q=${city},ID&appid=${apiKey}`,
+                    method: 'GET',
+                    success: function(data) {
+                        const weatherCity = `Cuaca di ${data.name}: ${data.weather[0].description}`;
+                        const weatherDegree = `Suhu: ${(data.main.temp - 273).toFixed(2)}°C`;
+                        degree = data.main.temp - 273;
+                        $('#weatherCity').text(weatherCity);
+                        $('#weatherDegree').text(weatherDegree);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+        if (degree > 0) {
+
+        }
+    </script>
+</body>
+</html>
