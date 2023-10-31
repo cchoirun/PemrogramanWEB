@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3"></script>
+    <title>Document</title>
+    <!-- <script src="https://unpkg.com/vue@3"></script> -->
+    <style>
+        li.fav{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="calc">
+        <!-- <label for="angka1">Angka 1 </label> -->
+        <input type="number" id="angka1" v-model="var1"><br><br>
+        <!-- <label for="angka2">Angka 2 </label> -->
+        <input type="number" id="angka2" v-model="var2"><br><br>
+
+        <button v-on:click = "hasil= parseFloat(var1) + parseFloat(var2)">+</button>
+        <button v-on:click = "hasil= parseFloat(var1) - parseFloat(var2)">-</button>
+        <button v-on:click = "hasil= parseFloat(var1) * parseFloat(var2)">*</button>
+        <button v-on:click = "hasil= parseFloat(var1) / parseFloat(var2)">/</button><br>
+        {{hasil}}
+    </div>
+
+    List Mata Kuliah
+    <div id="app">
+        <div v-if="show">
+            <ol>
+                <li v-for="book in books" :class="{fav: book.isFav }" @click="toggleFav(book)">
+                    <p> {{ book.title }} - {{ book.author }} </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="tugas1.js"></script>
+    <!-- <script src="app.js"></script> -->
+</body>
+</html>
